@@ -1,6 +1,7 @@
 import database as db
 import peewee as pw
 
+
 def enter(data):
     try:
         db.User().create_new(

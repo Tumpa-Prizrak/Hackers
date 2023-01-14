@@ -1,5 +1,6 @@
 from sys import exit
 
+
 def enter(data: dict):
     if data["logged"]:
         data.update({

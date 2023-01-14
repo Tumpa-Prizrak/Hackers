@@ -5,7 +5,7 @@ def enter(data: dict, mode: str):
             return
         print(
             f"network id: {data['user']['guild_id']}\n"
-            f"mac-adress: {data['user']['discord_id']}\n"
+            f"mac-address: {data['user']['discord_id']}\n"
             f"ip: {data['user']['ip']}\n"
             f"login: {data['user']['login']}\n"
             f"password: {data['user']['password']}"
