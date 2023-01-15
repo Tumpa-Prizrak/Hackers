@@ -1,5 +1,7 @@
-import cmd_emul as cmd
+import cli
 import colorama
+from utils import user
+from commands import exit
 
 global_data = {
     "discord_id": 88504839439,
@@ -13,5 +15,10 @@ global_data = {
 colorama.init()
 print(colorama.Fore.GREEN, end="")
 
-while True:
-    cmd.input_handler(input(cmd.get_prefix(global_data)), global_data)
+if __name__ == "__main__":
+    while True:
+        try:
+            cli.input_handler(input(user.get_prefix(global_data)), global_data)
+        except KeyboardInterrupt:
+            print()
+            exit.enter(global_data)

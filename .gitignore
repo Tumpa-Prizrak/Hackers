@@ -1,5 +1,4 @@
-.vscode/
-.idea/
 __pycache__/
-database/__pycache__/
-utils/__pycache__/
+
+/.vscode/
+/.idea/
