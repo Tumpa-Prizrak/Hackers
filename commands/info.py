@@ -1,4 +1,8 @@
-def enter(data: dict, mode: str):
+def enter(data: dict, mode: str) -> None:
+    """
+    Shows info about object
+    Usage: info user
+    """
     if mode == "user":
         if not data['logged']:
             print("You are not logged")

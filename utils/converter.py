@@ -2,7 +2,21 @@ import typing
 import ast
 
 
-def convert_from(data: str | typing.Iterable[str]):
+def convert_from(data: str | typing.Iterable[str]) -> typing.Union[str, typing.List[str]]:
+    """
+    Convert string to boolean, integer, float, complex or dict.
+
+    Parameters
+    ----------
+    data: str | typing.Iterable[str]
+        Data to convert.
+
+    Returns
+    -------
+    typing.Union[str, typing.List[str]]
+        Converted data.
+
+    """
     if isinstance(data, typing.Iterable):
         output = []
         for part in data:

@@ -2,6 +2,10 @@ from sys import exit
 
 
 def enter(data: dict):
+    """
+    Log out from the user
+    Usage: exit
+    """
     if data["logged"]:
         data.update({
             "user": {

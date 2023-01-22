@@ -6,6 +6,23 @@ db = pw.SqliteDatabase("database\\mysqldb.db")  # type: ignore
 
 
 class User(pw.Model):
+    """
+    Encapsulate the behaviour of User.
+
+    Attributes
+    ----------
+    id_: int
+    guild_id: int
+    discord_id: int
+    ip: str
+    login: str
+    password: str
+
+    Methods
+    -------
+    create_new(self, guild_id: int, discord_id: int, login: str, password: str, ip: Optional[str] = None)
+        Creates new user in database.
+    """
     id_ = pw.AutoField(column_name="id")
     guild_id = pw.IntegerField(column_name="guild_id")
     discord_id = pw.IntegerField(column_name="discord_id", unique=True)
@@ -13,7 +30,27 @@ class User(pw.Model):
     login = pw.TextField(column_name="login", unique=True)
     password = pw.TextField(column_name="password")
 
-    def create_new(self, guild_id: int, discord_id: int, login: str, password: str, ip: Optional[str] = None):
+    def create_new(self, guild_id: int, discord_id: int, login: str, password: str, ip: Optional[str] = None) -> None:
+        """
+        Creates new user in database.
+
+        Parameters
+        ----------
+        guild_id: int
+            Guild ID of user.
+        discord_id: int
+            Discord ID of user.
+        login: str
+            Login of user.
+        password: str
+            Password of user.
+        ip: Optional[str]
+            IP of user.
+
+        Returns
+        -------
+        None
+        """
         egg = 100
         while True:
             try:

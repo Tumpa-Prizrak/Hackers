@@ -2,4 +2,10 @@ from os import system
 
 
 def enter(_: dict):
-    system("cls")
+    """
+    Clears the terminal window.
+    Usage: clear
+    """
+    if system("cls") == 1:
+        system("clear")
+
