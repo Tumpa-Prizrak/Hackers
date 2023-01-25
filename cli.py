@@ -1,5 +1,4 @@
 import runpy
-from builtins import function
 
 from utils.exceptions import exceptions_handler
 
@@ -7,7 +6,6 @@ from utils.exceptions import exceptions_handler
 def input_handler(command: str, global_data: dict) -> None:
     """
     Check if the command is valid and call the corresponding function.
-
     Parameters
     ----------
     command: str
@@ -28,7 +26,7 @@ def input_handler(command: str, global_data: dict) -> None:
         exceptions_handler(e, parts)
 
 
-def get_command(command: str) -> function:
+def get_command(command: str):
     """
     Get the corresponding function of the command.
 

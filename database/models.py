@@ -23,7 +23,7 @@ class User(pw.Model):
     create_new(self, guild_id: int, discord_id: int, login: str, password: str, ip: Optional[str] = None)
         Creates new user in database.
     """
-    id_ = pw.AutoField(column_name="id")
+    id_ = pw.PrimaryKeyField(column_name="id")
     guild_id = pw.IntegerField(column_name="guild_id")
     discord_id = pw.IntegerField(column_name="discord_id", unique=True)
     ip = pw.TextField(column_name="ip", unique=True)
@@ -75,3 +75,25 @@ class User(pw.Model):
     class Meta:
         database: pw.SqliteDatabase = db
         table_name: str = "users"
+
+
+class FileManagerObject(pw.Model):
+    previous = pw.TextField(column_name="previous")
+    name = pw.TextField(column_name="name", unique=True)
+    is_file = pw.BooleanField(column_name="isfile")
+
+    def create_new(self, previous: str, name: str, is_file: bool):
+        self.create(
+            previous=previous,
+            name=name,
+            is_file=is_file,
+        )
+        self.save()
+
+    def __str__(self) -> str:
+        return "" if self.previous is None else "/" + self.name
+
+    class Meta:
+        database: pw.SqliteDatabase = db
+        table_name: str = "directories"
+
